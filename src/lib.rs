@@ -13,6 +13,9 @@ use nalgebra::{Point3, Vector3, Matrix4, Quaternion, Rotation3};
 pub mod render_object;
 use render_object::polyline_object;
 
+pub mod camera;
+use camera::orbit_camera;
+
 
 
 pub struct Editor3d{

@@ -11,6 +11,8 @@ use uuid::Uuid;
 //use crate::render_object::buffers;
 use super::buffers::*;
 
+use crate::camera::orbit_camera;
+
 pub struct PolylineObject{
     pub id: uuid::Uuid,
     pub line_segments: Box<[line_segment_buffer::LineSegment]>,
@@ -53,7 +55,7 @@ impl PolylineRenderResources {
         //シェーダーを読み込む
         let shader = device.create_shader_module(wgpu::ShaderModuleDescriptor {
             label: Some("polyline_render_resources"),
-            source: wgpu::ShaderSource::Wgsl(include_str!("./wgpu_3d_polyline_shader.wgsl").into()),
+            source: wgpu::ShaderSource::Wgsl(include_str!("./shaders/wgpu_3d_polyline_shader.wgsl").into()),
         });
 
         //########## バーテックスバッファーの作成
